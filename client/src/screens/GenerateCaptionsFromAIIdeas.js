@@ -1,10 +1,4 @@
-import {
-  Box,
-  Button,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import SideMenu from "../components/SideMenu";
@@ -65,8 +59,8 @@ const GenerateCaptionsFromAIIdeas = () => {
         </Stack>
 
         {captions.length > 0 && (
-          <Box maxWidth={'60%'} marginTop={'2em'}>
-            <CaptionsList captions={captions} topic={idea} />
+          <Box maxWidth={"60%"} marginTop={"2em"}>
+            <CaptionsList captions={captions} topic={ideaToGenerate} />
           </Box>
         )}
       </Box>
