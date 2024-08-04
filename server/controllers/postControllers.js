@@ -59,7 +59,7 @@ export const saveGeneratedContent = async (req, res) => {
     const { topic, data, phoneNumber } = req.body;
 
     const docRef = await addDoc(collection(db, "savedPosts"), {
-      topic,
+      topic: topic.toLowerCase().trim(),
       data,
       phoneNumber,
     });
