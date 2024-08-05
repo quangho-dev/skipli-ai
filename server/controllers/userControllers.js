@@ -7,6 +7,11 @@ const db = getFirestore(firebase);
 export const createNewAccessCode = async (req, res) => {
   try {
     const phoneNumber = req.body.phoneNumber;
+
+    if (!phoneNumber) {
+      return res.status(400).send("Phone number is required");
+    }
+
     const random6DigitNumber = generateRandom6DigitNumber();
 
     await setDoc(doc(db, "users", phoneNumber), {
@@ -32,6 +37,14 @@ const generateRandom6DigitNumber = () =>
 export const validateAccessCode = async (req, res) => {
   try {
     const { phoneNumber, accessCode } = req.body;
+
+    if (!phoneNumber) {
+      return res.status(400).send('Phone number is required')
+    }
+
+    if (!accessCode) {
+      return res.status(400).send('Access code is required')
+    }
 
     let isAccessCodeValid = false;
 
