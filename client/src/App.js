@@ -11,6 +11,7 @@ import ChooseTopicAndToneScreen from "./screens/ChooseTopicAndToneScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import GetInspiredScreen from "./screens/GetInspiredScreen";
 import GenerateCaptionsFromAIIdeas from "./screens/GenerateCaptionsFromAIIdeas";
+import DashboardLayout from "./components/DashboardLayout";
 
 function App() {
   return (
@@ -24,22 +25,30 @@ function App() {
               path="/verify-access-code"
               element={<VerifyAccessCodeScreen />}
             />
-            <Route path="/dashboard" element={<DashboardScreen />} />
+            <Route path="" element={<DashboardLayout />}>
             <Route
-              path="/choose-a-social-network"
-              element={<ChooseSocialNetworkScreen />}
-            />
-            <Route
-              path="/choose-topic-and-tone"
-              element={<ChooseTopicAndToneScreen />}
-            />
+                path="/dashboard"
+                element={<DashboardScreen />}
+              />
+              <Route
+                path="/choose-a-social-network"
+                element={<ChooseSocialNetworkScreen />}
+              />
+              <Route
+                path="/choose-topic-and-tone"
+                element={<ChooseTopicAndToneScreen />}
+              />
 
-            <Route path="/profile" element={<ProfileScreen />} />
-            <Route path="/get-inspired" element={<GetInspiredScreen />} />
-            <Route
-              path="/generate-captions-from-AI-ideas"
-              element={<GenerateCaptionsFromAIIdeas />}
-            />
+              <Route path="/profile" element={<ProfileScreen />} />
+              <Route
+                path="/get-inspired"
+                element={<GetInspiredScreen />}
+              />
+              <Route
+                path="/generate-captions-from-AI-ideas"
+                element={<GenerateCaptionsFromAIIdeas />}
+              />
+            </Route>
           </Routes>
           <ToastContainer
             position="top-right"
